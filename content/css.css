@@ -1,0 +1,231 @@
+    body {
+        margin: 0;
+    }
+    
+    .enquire-record {
+        background: #f5f6f8;
+        padding-bottom: 70px;
+        max-width: 800px;
+        margin: 0 auto;
+        min-width: 800px;
+        max-height: 440px;
+        min-height: 440px;
+        overflow-y: scroll;
+    }
+    
+    .enquire-record .enquire-record-doct {
+        background: #fff;
+        padding: 0.25rem 0.5rem;
+        box-shadow: 0 2px 5px 5px #edf0f2;
+        display: -webkit-flex;
+        -webkit-align-items: center;
+        justify-content: space-between;
+    }
+    
+    .enquire-record .enquire-record-doct .erd-tx {
+        width: 0.95rem;
+        height: 0.95rem;
+        border-radius: 50%;
+    }
+    
+    .enquire-record .enquire-record-doct .erd-right {
+        float: right;
+        width: 75%;
+    }
+    
+    .erd-right h2 {
+        font-size: 0.28rem;
+        color: #34495e;
+    }
+    
+    .erd-right h2 img {
+        width: 0.25rem;
+        height: 0.29rem;
+    }
+    
+    .erd-right h2 span {
+        margin-left: 0.2rem;
+        font-size: 0.24rem;
+        color: #aaaaaa;
+        font-weight: normal;
+    }
+    
+    .erd-right p {
+        font-size: 0.22rem;
+        margin-top: 0.25rem;
+    }
+    
+    .erd-right p span {
+        vertical-align: middle;
+        margin-right: 0.3rem;
+    }
+    
+    .erd-right p label {
+        display: inline-block;
+        width: 0.88rem;
+        height: 0.2rem;
+        line-height: 0.22rem;
+        text-align: center;
+        font-size: 0.18rem;
+        border: 0.03rem solid #33c1a1;
+    }
+    
+    .enquire-record .er-start {
+        width: 3.41rem;
+        height: 0.53rem;
+        line-height: 0.53rem;
+        margin: 0.3rem auto;
+        background: #fff;
+        border-radius: 0.06rem;
+        text-align: center;
+        font-size: 0.2rem;
+        color: #999999;
+    }
+    
+    .record-r {
+        position: relative;
+        text-align: right;
+        padding: 5px;
+        margin-top: 30px;
+    }
+    
+    .record-r img.tx-re {
+        float: right;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+    
+    .record-main {
+        display: inline-block;
+        position: relative;
+        max-width: 600px;
+        box-sizing: border-box;
+        padding: 8px 4px;
+        font-size: 14px;
+        color: #666;
+        background: #fff;
+        border-radius: 0.1rem;
+        text-align: left;
+        margin-bottom: 2px;
+        box-shadow: 0 0 5px 5px #e8eff6;
+        margin-top: 20px;
+    }
+    
+    .record-r .record-main {
+        margin-right: 0.35rem;
+    }
+    
+    .record-r .record-main em {
+        width: 0.25rem;
+        height: 0.25rem;
+        position: absolute;
+        right: -0.14rem;
+        top: 0.1rem;
+        background: url(../Images/em-right.png);
+        background-size: cover;
+    }
+    
+    .record-r i {
+        position: absolute;
+        right: 50px;
+        bottom: -20px;
+        font-size: 12px;
+        color: #a5b0b7;
+    }
+    
+    .record-l {
+        position: relative;
+        text-align: left;
+        padding: 5px;
+        margin-top: 30px;
+    }
+    
+    .record-l .record-main {
+        margin-left: 0.35rem;
+    }
+    
+    .record-l img.tx-re {
+        float: left;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+    
+    .record-l i {
+        position: absolute;
+        left: 50px;
+        bottom: -20px;
+        font-size: 0.18rem;
+        color: #a5b0b7;
+    }
+    
+    .record-main img {
+        max-width: 100px;
+    }
+    
+    .record-l .record-main em {
+        width: 0.25rem;
+        height: 0.25rem;
+        position: absolute;
+        left: -0.16rem;
+        top: 0.1rem;
+        background: url(../Images/em-left.png);
+        background-size: cover;
+    }
+    
+    .enquire-record .nc_r {
+        font-size: 14px;
+        color: #a5b0b7;
+        display: block;
+        position: relative;
+        top: 8px;
+        right: 5px;
+    }
+    
+    .enquire-record .nc_l {
+        font-size: 0.18rem;
+        color: #a5b0b7;
+        display: block;
+        position: relative;
+        top: 8px;
+        left: 5px;
+    }
+    
+    .enquire-write {
+        position: fixed;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        top: 480px;
+        bottom: 0;
+        width: 800px;
+        height: 150px;
+    }
+    
+    #div1 {
+        height: 100px;
+    }
+    
+    .fs {
+        background-color: #EE2C2C;
+        color: white;
+        font-weight: bold;
+        width: 90px;
+        height: 40px;
+    }
+    
+    .enquire-info {
+        background-color: #B2DFEE;
+        color: white;
+        font-weight: bold;
+        width: 130px;
+        height: 200px;
+        position: absolute;
+        left: -150px;
+        top: -400px;
+    }
+    
+    .enquire-info p {
+        text-align: center;
+    }

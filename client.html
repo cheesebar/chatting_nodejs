@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script>
+    </script>
+    <link rel="stylesheet" type="text/css" href="./content/css.css" />
+    <link rel="stylesheet" type="text/css" href="./content/wangEditor.min.css" />
+    <title>公共聊天室</title>
+</head>
+
+<body>
+    <div class="enquire-record">
+    </div>
+    <div class="enquire-write">
+        <div id="div1">
+        </div>
+        <p>
+            欢迎来到在线聊天室,Enter发送消息,或者点击&nbsp&nbsp<button class="fs" id="btn_fs">发&nbsp&nbsp&nbsp送</button>
+        </p>
+        <div class="enquire-info">
+            <p>
+                当前在线
+            </p>
+            <p id="number">
+                0人
+            </p>
+            <p id="news" style="color:blueviolet">
+
+            </p>
+        </div>
+    </div>
+    <script src="./content/jquery.min.js"></script>
+    <script src="./socket.io.js"></script>
+    <script src="./content/wangEditor.min.js"></script>
+    <script>
+        //创建一个连接
+        var socket = io.connect('http://localhost:8321');
+        //绑定服务器事件
+        socket.on('offLine', function(message) {
+            $('#news').html(message.name + '下线.');
+            $('#number').html(message.count + '人');
+        });
+        socket.on('onLine', function(message) {
+            $('#news').html(message.name + '上线.');
+            $('#number').html(message.count + '人');
+        });
+        socket.on('broadCast', function(message) {
+            var lr = message.isSelf ? 'r' : 'l';
+            var jpg = message.isSelf ? './content/1.jpg' : './content/0.jpg';
+            var html = '<div class="record-' + lr + '">\
+            <img src="' + jpg + '" alt="" class="tx-re">\
+            <em class="nc_' + lr + '">' + message.name + '</em>\
+            <div class="record-main">\
+                ' + message.message + '\
+            </div>\
+                <i>' + getNowFormatDate() + '</i>\
+            </div>';
+            $('.enquire-record').append(html);
+            $('.enquire-record').scrollTop($('.enquire-record')[0].scrollHeight);
+        });
+        socket.on('begin', function(message) {
+            $('#number').html(message.count + '人');
+        });
+        //发送
+        var send = function() {
+            var message = $('#div1').html()
+                .replace('</p><p><br></p>', '')
+                .replace('<p>', '')
+                .replace('</p>', '')
+                .replace('<br>', '')
+                .replace('<div>', '')
+                .replace('</div>', '')
+                .replace('&nbsp;', '')
+                .replace('<p>', '');
+            if (message.trim().length < 1) {
+                alert('至少一个字符哦');
+            }
+            //
+            socket.emit('news', message);
+            $('#div1').html('');
+        };
+
+        $('#btn_fs').click(function() {
+            send();
+        });
+        $('#div1').keydown(function(event) {
+            if (event.keyCode == 13) {
+                send();
+            }
+        });
+        //获取格式化后的时间
+        var getNowFormatDate = function() {
+            var date = new Date();
+            var seperator1 = "-";
+            var seperator2 = ":";
+            var month = date.getMonth() + 1;
+            var strDate = date.getDate();
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+            if (strDate >= 0 && strDate <= 9) {
+                strDate = "0" + strDate;
+            }
+            var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                " " + date.getHours() + seperator2 + date.getMinutes() +
+                seperator2 + date.getSeconds();
+            return currentdate;
+        };
+        //使用wangeidtor文本编辑器
+        var editor = new wangEditor('div1');
+        editor.config.menus = ['emotion'];
+        editor.create();
+        $('.wangEditor-container').last().css('border', '1px solid #ccc');
+        $('.selected_a').mouseover(function() {
+            $(this).css('background-color', '#1E88E5');
+        })
+    </script>
+</body>
+
+</html>
